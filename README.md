@@ -113,5 +113,8 @@ You are free to contribute to this tool.
 
 Changes to the CSS code must be done through the `.scss` file. This project uses `sass` downloaded via `npm`.
 
+## Crediting
+This tool is entirely free and you do not have pay to use it. You do not need to have permission or anything similar to use it either. In addition, no creditting is required, but it would be appreciated nevertheless (linking to this repository should suffce).
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
