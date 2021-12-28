@@ -1,5 +1,5 @@
 # Convert The Flying Press articles to HTML code
-Link to application: [placeholder](placeholder)
+Link to application: [https://ryotamitaraiweb.github.io/TFP-Articles-to-HTML/](https://ryotamitaraiweb.github.io/TFP-Articles-to-HTML/)
 
 ## Important things to keep in mind before using the tool
 This tool is not aimed at replacing HTMLers, but rather to help them code articles faster and with less hassle, allowing them to focus more on the design or other aspects of the articles. Furthermore, the tool is imperfect and is bound to commit mistakes and/or not generate production-ready code. Due to this, you are still expected to know how to work with HTML and CSS in order to finish what the tool couldn't do.
