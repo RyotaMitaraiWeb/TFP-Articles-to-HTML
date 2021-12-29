@@ -98,8 +98,8 @@ The tool won't parse correctly any text of block that starts with another tag li
 You can customize to an extent the final output through the checkboxes provided after the first text field. Each does the following, in that order:
 - Add a "spotlight" styling to sets. This means that the Pokemon name of the set is bolded and you get some extra CSS code for letter spacing of the first line.
 - Add `<img>` tag(s) before the Pokemon name, if there are items in the set. The tool detects the item via @, so make sure the set doesn't have a nickname that includes the symbol.
-- Generate CSS code for a `two-sets` class, which is a grid with ``template-columns: 1fr 1fr` if you want to spread two sets across the same line.
-- Generate CSS code for a `three-sets` class, which is a grid with ``template-columns: 1fr 1fr 1fr` if you want to spread three sets across the same line.
+- Generate CSS code for a `two-sets` class, which is a grid with `template-columns: 1fr 1fr`` if you want to spread two sets across the same line.
+- Generate CSS code for a `three-sets` class, which is a grid with `template-columns: 1fr 1fr 1fr` if you want to spread three sets across the same line.
 - Generate `<script>` tags to be used later on. The tool will generate a CDN to jQuery and an empty `<script` tag for you to fill later.
 - Generate CSS code for colored stats bars. [Here's an example](https://www.smogon.com/articles/lgpeou-modern-intro)
 
