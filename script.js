@@ -152,7 +152,7 @@ docReady(function () {
         }
 
         function addSmallSprites() {
-            let minisprites = article.match(/:.*?:/gmi);
+            let minisprites = article.match(/:[a-z]+:/gmi);
             if (minisprites) {
                 minisprites = minisprites.filter(item => !item.includes(' '));
                 minisprites.forEach(item => {
