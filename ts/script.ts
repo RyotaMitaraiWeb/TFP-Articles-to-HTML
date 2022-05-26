@@ -3,6 +3,7 @@ import { addHeadings } from './modules/addHeadings.js';
 import { addLists } from './modules/addLists.js';
 import { addSmallSprites } from './modules/addSmallSprites.js';
 import { escape } from './modules/escape.js';
+import { parseBBCodeFormatting } from './modules/parseBBCodeFormatting.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
 
@@ -34,5 +35,6 @@ window.addEventListener('load', () => {
         article = escape(article);
         article = addHeadings(article);
         article = addLists(article);
+        article = parseBBCodeFormatting(article);
     });
 });
