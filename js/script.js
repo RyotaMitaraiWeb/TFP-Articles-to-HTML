@@ -1,5 +1,6 @@
 import { addBigSprites } from './modules/addBigSprites.js';
 import { addHeadings } from './modules/addHeadings.js';
+import { addLists } from './modules/addLists.js';
 import { addSmallSprites } from './modules/addSmallSprites.js';
 import { escape } from './modules/escape.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
@@ -27,7 +28,7 @@ window.addEventListener('load', () => {
         article = addSmallSprites(article);
         article = escape(article);
         article = addHeadings(article);
-        console.log(article);
+        article = addLists(article);
     });
 });
 //# sourceMappingURL=script.js.map
