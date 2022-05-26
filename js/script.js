@@ -1,3 +1,4 @@
+import { addBigSprites } from './modules/addBigSprites.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
 window.addEventListener('load', () => {
@@ -19,6 +20,7 @@ window.addEventListener('load', () => {
         article = inputField.value;
         article = removeUnneededMarkup(article);
         article = replaceLinks(article);
+        article = addBigSprites(article);
     });
 });
 //# sourceMappingURL=script.js.map
