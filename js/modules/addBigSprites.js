@@ -1,3 +1,4 @@
+import { handleRegionalForme } from './handleRegionalFormes.js';
 export function addBigSprites(article) {
     const sprites = article.match(/:[a-z][a-z]\/.*?:/gi);
     let gen;
@@ -31,32 +32,6 @@ export function addBigSprites(article) {
         }
     }
     return article;
-}
-function handleRegionalForme(pokemon) {
-    const formeAdjectives = {
-        'mega': 'Mega',
-        'alola': 'Alolan',
-        'galar': 'Galarian',
-        'default': 'default',
-    };
-    let forme;
-    if (pokemon.includes('-mega')) {
-        forme = 'mega';
-    }
-    else if (pokemon.includes('-alola')) {
-        forme = 'alola';
-    }
-    else if (pokemon.includes('-galar')) {
-        forme = 'galar';
-    }
-    else {
-        forme = 'default';
-    }
-    return {
-        forme,
-        adjective: formeAdjectives[forme],
-        valid: forme !== 'default',
-    };
 }
 function determineExtension(directory) {
     if (directory.includes('ani')) {

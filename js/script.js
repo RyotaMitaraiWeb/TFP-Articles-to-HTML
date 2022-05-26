@@ -23,6 +23,7 @@ window.addEventListener('load', () => {
         article = replaceLinks(article);
         article = addBigSprites(article);
         article = addSmallSprites(article);
+        console.log(article);
     });
 });
 //# sourceMappingURL=script.js.map
