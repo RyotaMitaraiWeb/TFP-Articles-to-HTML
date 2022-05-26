@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFP Articles HTMLer</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <h1>Convert The Flying Press articles to HTML code <span>by <a href="https://www.smogon.com/forums/members/ryota-mitarai.318452/" target="_blank">Ryota Mitarai</a>. <a href="https://github.com/RyotaMitaraiWeb/TFP-Articles-to-HTML" target="_blank">GitHub repository</a></span></h1>
+    <form action="">
+        <textarea name="" id="article" cols="30" rows="10" placeholder="paste BBCode here..."></textarea>
+        <div class="group">
+            <input type="checkbox" name="spotlight" id="spotlight">
+            <label for="spotlight">Sets are spotlights <abbr title="The Pokemon name on each set will be bolded.">*</abbr></label>
+        </div>
+        <div class="group">
+            <input type="checkbox" name="heldItem" id="heldItem">
+            <label for="heldItem">Add the Pokemon's held item(s) before the set (if applicable)</label>
+        </div>
+        <div class="group">
+            <input type="checkbox" name="twoSets" id="twoSets">
+            <label for="twoSets">Generate CSS grid for two sets <abbr title="This will generate CSS code for a grid with columns 1fr 1fr. Does not affect the HTML code iself.">*</abbr></label>
+        </div>
+        <div class="group">
+            <input type="checkbox" name="threeSets" id="threeSets">
+            <label for="threeSets">Generate CSS grid for three sets <abbr title="This will generate CSS code for a grid with columns 1fr 1fr 1fr. Does not affect the HTML code iself.">*</abbr></label>
+        </div>
+        <div class="group">
+            <input type="checkbox" name="script" id="script">
+            <label for="script">Generate script tags <abbr title="Generates a CDN to jQuery and an empty script tag for you to fill with code">*</abbr></label>
+        </div>
+        <div class="group">
+            <input type="checkbox" name="stats" id="stats">
+            <label for="stats">Generate stats CSS <abbr title="Generates CSS code for displaying Pokemon's stats as colored bars (see some of the LGPE articles). Does not affect the HTML code itself.">*</abbr></label>
+        </div>
+        <input type="button" value="Convert" id="convert">
+        <textarea name="result" id="result" cols="30" rows="10" readonly placeholder="Result will appear here"></textarea>
+    </form>
+
+    <hr>
+
+    <h2>Sample Teams formatter</h2>
+    <p>Paste the team into the field below, copy the output, and insert it manually in the HTML code.</p>
+    <form action="">
+        <textarea name="" id="sample" cols="30" rows="10" placeholder="paste sample team here..."></textarea>
+        <input type="button" id="convertSample" value="Convert">
+        <textarea name="sampleOutput" id="sampleOutput" cols="30" rows="10" readonly placeholder="Result will appear here"></textarea>
+    </form>
+
+    <script src="./script.js"></script>
+</body>
+</html>
