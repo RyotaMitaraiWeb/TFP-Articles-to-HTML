@@ -1,4 +1,5 @@
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
+import { replaceLinks } from './modules/replaceLinks.js';
 
 window.addEventListener('load', () => {
     const inputField: HTMLTextAreaElement = <HTMLTextAreaElement>document.querySelector('#article');
@@ -22,7 +23,6 @@ window.addEventListener('load', () => {
         article = inputField.value;
         
         article = removeUnneededMarkup(article);
-        console.log(article);
-        
+        article = replaceLinks(article);
     });
 });

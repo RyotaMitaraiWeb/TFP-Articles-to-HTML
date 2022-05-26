@@ -1,4 +1,5 @@
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
+import { replaceLinks } from './modules/replaceLinks.js';
 window.addEventListener('load', () => {
     const inputField = document.querySelector('#article');
     const spotlightCheckbox = document.querySelector('#spotlight');
@@ -17,7 +18,7 @@ window.addEventListener('load', () => {
         script = '';
         article = inputField.value;
         article = removeUnneededMarkup(article);
-        console.log(article);
+        article = replaceLinks(article);
     });
 });
 //# sourceMappingURL=script.js.map
