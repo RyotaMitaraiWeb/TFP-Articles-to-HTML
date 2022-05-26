@@ -1,4 +1,5 @@
 import { addBigSprites } from './modules/addBigSprites.js';
+import { addHeadings } from './modules/addHeadings.js';
 import { addSmallSprites } from './modules/addSmallSprites.js';
 import { escape } from './modules/escape.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
@@ -30,6 +31,7 @@ window.addEventListener('load', () => {
         article = addBigSprites(article);
         article = addSmallSprites(article);
         article = escape(article);
+        article = addHeadings(article);
         console.log(article);
                         
     });
