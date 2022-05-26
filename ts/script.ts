@@ -1,5 +1,6 @@
 import { addBigSprites } from './modules/addBigSprites.js';
 import { addSmallSprites } from './modules/addSmallSprites.js';
+import { escape } from './modules/escape.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
 
@@ -28,7 +29,8 @@ window.addEventListener('load', () => {
         article = replaceLinks(article);
         article = addBigSprites(article);
         article = addSmallSprites(article);
+        article = escape(article);
         console.log(article);
-        
+                        
     });
 });
