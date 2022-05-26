@@ -1,5 +1,5 @@
 export function addSmallSprites(article) {
-    const textSurroundedByColons = article.match(/:[a-z]+:/gmi);
+    const textSurroundedByColons = article.match(/:[a-z\-]+:/gmi);
     if (textSurroundedByColons !== null) {
         const minisprites = textSurroundedByColons.filter(text => !text.includes(' '));
         for (const minisprite of minisprites) {
