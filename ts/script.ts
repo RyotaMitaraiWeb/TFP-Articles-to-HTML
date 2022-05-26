@@ -1,4 +1,5 @@
 import { addBigSprites } from './modules/addBigSprites.js';
+import { addSmallSprites } from './modules/addSmallSprites.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
 
@@ -25,6 +26,7 @@ window.addEventListener('load', () => {
         
         article = removeUnneededMarkup(article);
         article = replaceLinks(article);
-        article = addBigSprites(article);        
+        article = addBigSprites(article);
+        article = addSmallSprites(article);
     });
 });
