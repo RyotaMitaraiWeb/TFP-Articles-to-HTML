@@ -1,1 +1,28 @@
-console.log('test');
+import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
+
+window.addEventListener('load', () => {
+    const inputField: HTMLTextAreaElement = <HTMLTextAreaElement>document.querySelector('#article');
+    const spotlightCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#spotlight');
+    const heldItemCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#heldItem');
+    const twoSetsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#twoSets');
+    const threeSetsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#threeSets');
+    const scriptCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#script');
+    const statsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#stats');
+
+    let script: string, article: string, style: string;
+
+    const result: HTMLTextAreaElement = <HTMLTextAreaElement>document.querySelector('#result');
+    const convertBtn: HTMLInputElement = <HTMLInputElement>document.querySelector('#convert');
+
+    convertBtn.addEventListener('click', event => {
+        event.preventDefault();
+        result.value = '';
+        style = '';
+        script = '';
+        article = inputField.value;
+        
+        article = removeUnneededMarkup(article);
+        console.log(article);
+        
+    });
+});
