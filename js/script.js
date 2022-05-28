@@ -5,6 +5,7 @@ import { addSmallSprites } from './modules/addSmallSprites.js';
 import { escape } from './modules/escape.js';
 import { parseBBCodeFormatting } from './modules/parseBBCodeFormatting.js';
 import { parseSets } from './modules/parseSets.js';
+import { parseTables } from './modules/parseTables.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
 window.addEventListener('load', () => {
@@ -33,6 +34,7 @@ window.addEventListener('load', () => {
         article = addLists(article);
         article = parseBBCodeFormatting(article);
         article = parseSets(article, spotlightCheckbox.checked, heldItemCheckbox.checked);
+        article = parseTables(article);
         console.log(article);
     });
 });
