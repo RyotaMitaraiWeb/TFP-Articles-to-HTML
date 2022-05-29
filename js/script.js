@@ -7,6 +7,7 @@ import { escape } from './modules/escape.js';
 import { parseBBCodeFormatting } from './modules/parseBBCodeFormatting.js';
 import { parseSets } from './modules/parseSets.js';
 import { parseTables } from './modules/parseTables.js';
+import { parseUserTags } from './modules/parseUserTags.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
 window.addEventListener('load', () => {
@@ -28,6 +29,7 @@ window.addEventListener('load', () => {
         article = inputField.value;
         article = removeUnneededMarkup(article);
         article = replaceLinks(article);
+        article = parseUserTags(article);
         article = addBigSprites(article);
         article = addSmallSprites(article);
         article = escape(article);
