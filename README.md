@@ -42,10 +42,7 @@ Lists (`[LIST]`) are converted to `<ol>` (numbered) or `<ul>` (bullet points); t
 Nested lists currently do not get parsed correctly, so you have to fix them yourself
 
 #### Hyperlinks
-`[URL]` tags are converted to `<a>` tags with their respective URLs. All of them also have a `target` attribute set to `_blank`. In addition, "http:" and "https:" are removed from the hyperlinks and all Smogon URLs are relative (aka they do not feature "www.smogon.com").
-
-#### `[COLOR]`
-Color tags are converted to `<span>` tags with the appropriate text color. Make sure that those aren't leftovers from a GP check, though.
+`[URL]` tags are converted to `<a>` tags with their respective URLs. All of them also have a `target` attribute set to `_blank`. In addition, "http:" and "https:" are removed from the hyperlinks and all Smogon URLs are relative (aka they do not feature "www.smogon.com"). The tool also parses user tags by converting them to hyperlinks.
 
 #### Other markup tags
 Most of the tags that were not mentioned are simply removed (the content is kept, just the tags themselves are removed). The list of those is: `[FONT]`, `[SPOILER]`, `[ISPOILER]`, `[SIZE]`, `[QUOTE]`, `[CENTER]`,  `[LEFT]`,  `[RIGHT]`,  `[CODE]`,  `[ICODE]`,  `[INDENT]`,  `[EMAIL]`,  `[PLAIN]`,  `[HIDE]`, and `[ATTACH]`. Any other tag is purposely kept (but not converted), but may be subject to be removed in the future if I decide they do not serve any good purpose.
@@ -55,7 +52,9 @@ Most of the tags that were not mentioned are simply removed (the content is kept
 #### Big sprites
 Sprites defined through the formatting `:generaton/pokemon:` are converted to `<img>` tags with a `src` pointing to their files on Pokemon Showdown!'s sprite directory and an `alt` attribute correctly (in most cases) naming the Pokemon. If `generation` is "rb", "gs", "rs", or "dp", the `src` will have a `.png` extension, otherwise, it will have a `.gif` extension. In addition, "rb" points to the `gen1` directory, "gs" to the `gen2` directory, "rs" to the `gen3` directory, "dp" to the `gen4` directory, 'bw' to the `gen5ani` directory, and anything else to the `ani` directory.
 
-This functionality also implements special cases for some Pokemon whose Smogon name is not consistent with PS's file names. Those are Nidoran-M, Nidoran-F, Mr. Mime, Galarian Mr. Mime, the Jangmo-o line, Tapu Koko/Lele/Bulu/Fini, Mega Pokemon, Alolan Pokemon, and Galarian Pokemon. There may be few cases (like Zen Mode Galarian Darmanitan) that are not handled correctly (either in `src` or `alt`), so you have to fix those yourself. I may implement those too if there's a popular demand for that.
+This functionality also implements special cases for some Pokemon whose Smogon name is not consistent with PS's file names. Those are Nidoran-M, Nidoran-F, Mr. Mime, Galarian Mr. Mime, the Jangmo-o line, Ho-Oh Tapu Koko/Lele/Bulu/Fini, Mega Pokemon, Alolan Pokemon, and Galarian Pokemon. There may be few cases (like Zen Mode Galarian Darmanitan) that are not handled correctly (either in `src` or `alt`), so you have to fix those yourself. I may implement those too if there's a popular demand for that.
+
+The tool does not care about whether spaces or dashes are used as separators and will parse both correctly.
 
 `src` appropriately lacks "http:" and "https:".
 
@@ -64,7 +63,7 @@ If you need sprites from other directories, use your text editor or IDE's find a
 #### Small sprites
 Sprites defined through the formatting `:generaton/pokemon:` are converted to `<img>` tags with a `src` pointing to their files on Smogon's own sprite directory and an `alt` attribute correctly (in most cases) naming the Pokemon. All of them are with a `.png` extension.
 
-Unlike the big sprites, the small sprites functionality doesn't implement any special cases.
+Unlike the big sprites, the small sprites functionality doesn't implement any special cases. In addition, this module only parses small sprites that use dashes and not spaces as separators, as the tool needs to make sure that it does not catch entire sentences between two colons.
 
 It is important to note that items can also be displayed with the `:item:` formatting. __If you have a case like this, change the `xyicons` directory to `xyitems`__. I am planning on scrapping all the item names in the future and fix that, but for now, you have to fix this manually.
 
@@ -73,7 +72,7 @@ The tool will escape any ampersand (&) that has a space behind and in front of i
 
 Accented letters (é, á, ó, í, ú) and their capital equivalents are escaped to the respective `&acute;` HTML entity.
 
-"Poke" is converted to `Pok&eacute;`. The match is case sensitive. Only make sure you don't have "Poker" or something similar that would be caught in this.
+"Poke" is converted to `Pok&eacute;`. The match is case sensitive. The words "Poker", "Poked", and "Pokes" (case sensitive) are excluded and won't be escaped. However, other variations of those (like "Pokers") will be caught in this.
 
 Em dashes (—) are converted to `&mdash;` in case they still make it to the HTML phase.
 
