@@ -72,7 +72,7 @@ The tool will escape any ampersand (&) that has a space behind and in front of i
 
 Accented letters (é, á, ó, í, ú) and their capital equivalents are escaped to the respective `&acute;` HTML entity.
 
-"Poke" is converted to `Pok&eacute;`. The match is case sensitive. The words "Poker", "Poked", and "Pokes" (case sensitive) are excluded and won't be escaped. However, other variations of those (like "Pokers") will be caught in this.
+"Poke" is converted to `Pok&eacute;`. The match is case sensitive. The words "Poker", "Poked", and "Pokes" (case sensitive) are excluded and won't be escaped. However, if those are part of another word (like "Pokers" or "Pokering") rather than being standalone words, the tool will escape those too.
 
 Em dashes (—) are converted to `&mdash;` in case they still make it to the HTML phase.
 
