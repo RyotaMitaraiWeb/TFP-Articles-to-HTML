@@ -1,5 +1,5 @@
 export function escape(article: string): string {
-    article = article
+    return article
         .replace(/ & /gm, ' &amp; ')
         .replace(/é/gm, '&eacute;')
         .replace(/á/gm, '&aacute;')
@@ -15,6 +15,4 @@ export function escape(article: string): string {
         .replace(/—/gmi, '&mdash;')
         .replace(/[“”]/gmi, '"')
         .replace(/[‘’]/gmi, '\'');
-    
-    return article;
 }

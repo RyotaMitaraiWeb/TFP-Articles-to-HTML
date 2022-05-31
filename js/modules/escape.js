@@ -1,5 +1,5 @@
 export function escape(article) {
-    article = article
+    return article
         .replace(/ & /gm, ' &amp; ')
         .replace(/é/gm, '&eacute;')
         .replace(/á/gm, '&aacute;')
@@ -15,6 +15,5 @@ export function escape(article) {
         .replace(/—/gmi, '&mdash;')
         .replace(/[“”]/gmi, '"')
         .replace(/[‘’]/gmi, '\'');
-    return article;
 }
 //# sourceMappingURL=escape.js.map
