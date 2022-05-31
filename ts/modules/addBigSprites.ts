@@ -114,4 +114,4 @@ const edgeCaseNames: EdgeCases = {
         name: 'hooh',
         alt: 'Ho-Oh',
     },
-}
+};
