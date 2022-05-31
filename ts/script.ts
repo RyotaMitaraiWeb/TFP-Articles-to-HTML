@@ -5,6 +5,7 @@ import { addParagraphs } from './modules/addParagraphs.js';
 import { addSmallSprites } from './modules/addSmallSprites.js';
 import { escape } from './modules/escape.js';
 import { generateArticle } from './modules/generateArticle.js';
+import { generateTeam } from './modules/generateTeam.js';
 import { parseBBCodeFormatting } from './modules/parseBBCodeFormatting.js';
 import { parseSets } from './modules/parseSets.js';
 import { parseTables } from './modules/parseTables.js';
@@ -21,7 +22,7 @@ window.addEventListener('load', () => {
     const scriptCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#script');
     const statsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#stats');
 
-    let script: string, article: string, style: string;
+    let article: string;
 
     const result: HTMLTextAreaElement = <HTMLTextAreaElement>document.querySelector('#result');
     const convertBtn: HTMLInputElement = <HTMLInputElement>document.querySelector('#convert');
@@ -29,8 +30,6 @@ window.addEventListener('load', () => {
     convertBtn.addEventListener('click', event => {
         event.preventDefault();
         result.value = '';
-        style = '';
-        script = '';
         article = inputField.value;
 
         article = removeUnneededMarkup(article);
@@ -60,18 +59,7 @@ window.addEventListener('load', () => {
     const convertSample: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#convertSample');
     
     convertSample.addEventListener('click', function() {
-        const outputArray: string[] = [];
         const input: string = sample.value;
-        const team: string[] = input.split('\n\n');
-        team.forEach(member => {
-            if (member) {
-                member = '<p>' + member;
-                member = member.replace(/$/gm, '<br />') + '\n</p>';
-                outputArray.push(member)
-            }
-        });
-
-        const output: string = outputArray.join('\n\n<br />\n\n');
-        sampleOutput.value = output;
+        sampleOutput.value = generateTeam(input);
     });
 });

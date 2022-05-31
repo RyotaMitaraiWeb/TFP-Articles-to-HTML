@@ -5,6 +5,7 @@ import { addParagraphs } from './modules/addParagraphs.js';
 import { addSmallSprites } from './modules/addSmallSprites.js';
 import { escape } from './modules/escape.js';
 import { generateArticle } from './modules/generateArticle.js';
+import { generateTeam } from './modules/generateTeam.js';
 import { parseBBCodeFormatting } from './modules/parseBBCodeFormatting.js';
 import { parseSets } from './modules/parseSets.js';
 import { parseTables } from './modules/parseTables.js';
@@ -19,14 +20,12 @@ window.addEventListener('load', () => {
     const threeSetsCheckbox = document.querySelector('#threeSets');
     const scriptCheckbox = document.querySelector('#script');
     const statsCheckbox = document.querySelector('#stats');
-    let script, article, style;
+    let article;
     const result = document.querySelector('#result');
     const convertBtn = document.querySelector('#convert');
     convertBtn.addEventListener('click', event => {
         event.preventDefault();
         result.value = '';
-        style = '';
-        script = '';
         article = inputField.value;
         article = removeUnneededMarkup(article);
         article = replaceLinks(article);
@@ -48,18 +47,8 @@ window.addEventListener('load', () => {
     const sampleOutput = document.querySelector('#sampleOutput');
     const convertSample = document.querySelector('#convertSample');
     convertSample.addEventListener('click', function () {
-        const outputArray = [];
         const input = sample.value;
-        const team = input.split('\n\n');
-        team.forEach(member => {
-            if (member) {
-                member = '<p>' + member;
-                member = member.replace(/$/gm, '<br />') + '\n</p>';
-                outputArray.push(member);
-            }
-        });
-        const output = outputArray.join('\n\n<br />\n\n');
-        sampleOutput.value = output;
+        sampleOutput.value = generateTeam(input);
     });
 });
 //# sourceMappingURL=script.js.map
