@@ -11,7 +11,6 @@ import { parseTables } from './modules/parseTables.js';
 import { parseUserTags } from './modules/parseUserTags.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
-const inputField = document.querySelector('#article');
 const spotlightCheckbox = document.querySelector('#spotlight');
 const heldItemCheckbox = document.querySelector('#heldItem');
 const twoSetsCheckbox = document.querySelector('#twoSets');
@@ -19,8 +18,8 @@ const threeSetsCheckbox = document.querySelector('#threeSets');
 const scriptCheckbox = document.querySelector('#script');
 const statsCheckbox = document.querySelector('#stats');
 let article;
-export function main() {
-    article = inputField.value;
+export function main(input) {
+    article = input;
     article = removeUnneededMarkup(article);
     article = replaceLinks(article);
     article = parseUserTags(article);

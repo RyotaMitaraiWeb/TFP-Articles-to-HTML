@@ -12,7 +12,6 @@ import { parseUserTags } from './modules/parseUserTags.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
 
-const inputField: HTMLTextAreaElement = <HTMLTextAreaElement>document.querySelector('#article');
 const spotlightCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#spotlight');
 const heldItemCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#heldItem');
 const twoSetsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#twoSets');
@@ -22,8 +21,8 @@ const statsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector
 
 let article: string;
 
-export function main(): string {
-    article = inputField.value;
+export function main(input: string): string {
+    article = input;
 
     article = removeUnneededMarkup(article);
     article = replaceLinks(article);
