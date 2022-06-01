@@ -12,16 +12,10 @@ import { parseUserTags } from './modules/parseUserTags.js';
 import { removeUnneededMarkup } from './modules/removeUnneededMarkup.js';
 import { replaceLinks } from './modules/replaceLinks.js';
 
-const spotlightCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#spotlight');
-const heldItemCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#heldItem');
-const twoSetsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#twoSets');
-const threeSetsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#threeSets');
-const scriptCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#script');
-const statsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector('#stats');
-
 let article: string;
 
-export function main(input: string): string {
+export function main(input: string, spotlight: boolean, heldItem: boolean, twoSets: boolean, threeSets: boolean,
+    script: boolean, stats: boolean): string {
     article = input;
 
     article = removeUnneededMarkup(article);
@@ -33,7 +27,7 @@ export function main(input: string): string {
     article = addHeadings(article);
     article = addLists(article);
     article = parseBBCodeFormatting(article);
-    article = parseSets(article, spotlightCheckbox.checked, heldItemCheckbox.checked);
+    article = parseSets(article, spotlight, heldItem);
     article = parseTables(article);
     article = addParagraphs(article);
 
@@ -41,6 +35,6 @@ export function main(input: string): string {
     article = article.replace(/<\/li><\/li>/gmi, '</li>');
     article = article.replace(/<li>	<li>/gmi, '<li>');
 
-    return generateArticle(article, spotlightCheckbox.checked, twoSetsCheckbox.checked, threeSetsCheckbox.checked,
-        scriptCheckbox.checked, statsCheckbox.checked);
+    return generateArticle(article, spotlight, twoSets, threeSets,
+        script, stats);
 }
