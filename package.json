@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Link to application: [https://ryotamitaraiweb.github.io/TFP-Articles-to-HTML/](https://ryotamitaraiweb.github.io/TFP-Articles-to-HTML/)",
   "main": "./js/script.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
