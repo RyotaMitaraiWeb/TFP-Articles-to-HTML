@@ -22,10 +22,7 @@ const statsCheckbox: HTMLInputElement = <HTMLInputElement>document.querySelector
 
 let article: string;
 
-const result: HTMLTextAreaElement = <HTMLTextAreaElement>document.querySelector('#result');
-
-export function main(): void {
-    result.value = '';
+export function main(): string {
     article = inputField.value;
 
     article = removeUnneededMarkup(article);
@@ -45,6 +42,6 @@ export function main(): void {
     article = article.replace(/<\/li><\/li>/gmi, '</li>');
     article = article.replace(/<li>	<li>/gmi, '<li>');
 
-    result.value = generateArticle(article, spotlightCheckbox.checked, twoSetsCheckbox.checked, threeSetsCheckbox.checked,
+    return generateArticle(article, spotlightCheckbox.checked, twoSetsCheckbox.checked, threeSetsCheckbox.checked,
         scriptCheckbox.checked, statsCheckbox.checked);
 }

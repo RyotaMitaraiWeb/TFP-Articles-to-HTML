@@ -19,9 +19,7 @@ const threeSetsCheckbox = document.querySelector('#threeSets');
 const scriptCheckbox = document.querySelector('#script');
 const statsCheckbox = document.querySelector('#stats');
 let article;
-const result = document.querySelector('#result');
 export function main() {
-    result.value = '';
     article = inputField.value;
     article = removeUnneededMarkup(article);
     article = replaceLinks(article);
@@ -37,6 +35,6 @@ export function main() {
     article = addParagraphs(article);
     article = article.replace(/<\/li><\/li>/gmi, '</li>');
     article = article.replace(/<li>	<li>/gmi, '<li>');
-    result.value = generateArticle(article, spotlightCheckbox.checked, twoSetsCheckbox.checked, threeSetsCheckbox.checked, scriptCheckbox.checked, statsCheckbox.checked);
+    return generateArticle(article, spotlightCheckbox.checked, twoSetsCheckbox.checked, threeSetsCheckbox.checked, scriptCheckbox.checked, statsCheckbox.checked);
 }
 //# sourceMappingURL=main.js.map
