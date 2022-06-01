@@ -5,7 +5,7 @@ export function addSmallSprites(article: string): string {
     if (textSurroundedByColons !== null) {
         const minisprites: string[] = textSurroundedByColons.filter(text => !text.includes(' '));
         for (const minisprite of minisprites) {
-            const pokemon: string = minisprite.replace(/:/g, '');
+            const pokemon: string = minisprite.replace(/:/g, '').toLocaleLowerCase();
             const capitalizedPokemon: string = pokemon[0].toUpperCase() + pokemon.slice(1);
             const regionalForme = handleRegionalForme(pokemon);
             if (regionalForme.valid) {
