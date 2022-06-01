@@ -23,7 +23,7 @@ export function addBigSprites(article) {
                 if (regionalForme.valid) {
                     const adjective = `${regionalForme.adjective} ${capitalizedPokemon.replace(/(-mega|-alola|-galar)/gmi, '')}`;
                     article = article
-                        .replace(sprite, `<img src="//play.pokemonshowdown.com/sprites/${directory}/${pokemon}-${regionalForme.forme}.${extension}" alt="${adjective}" />`);
+                        .replace(sprite, `<img src="//play.pokemonshowdown.com/sprites/${directory}/${pokemon}.${extension}" alt="${adjective}" />`);
                 }
                 else {
                     article = article.replace(sprite, `<img src="//play.pokemonshowdown.com/sprites/${directory}/${pokemon}.${extension}" alt="${capitalizedPokemon}" />`);
